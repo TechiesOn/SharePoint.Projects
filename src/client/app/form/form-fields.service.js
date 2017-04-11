@@ -135,7 +135,7 @@
         key: 'plannedEndDate',
         type: 'input',
         templateOptions: {
-          label: 'Planned End Date',
+          label: 'Planned End Date (yyyy-mm-dd)',
           required: true,
           type: 'date'
         },

@@ -4,6 +4,7 @@ var config = require('./gulp.config')();
 var del = require('del');
 var glob = require('glob');
 var gulp = require('gulp');
+var rename = require('gulp-rename');
 var path = require('path');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({
@@ -209,9 +210,14 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function () {
     subtitle: 'Deployed to the build folder',
     message: 'Running `gulp serve-build`'
   };
+  
   del(config.temp);
   log(msg);
   notify(msg);
+  gulp.src(config.build+'index.html')
+    .pipe(rename('default.aspx'))
+    .pipe(gulp.dest(config.build));  
+  del(config.build+'index.html');
 });
 
 /**

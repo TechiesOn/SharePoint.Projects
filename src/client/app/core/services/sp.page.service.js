@@ -14,7 +14,7 @@
     return service;
 
     function getInfo() {
-      var url = $window._spPageContextInfo.webAbsoluteUrl;
+      var url = ($window._spPageContextInfo||{'webAbsoluteUrl':'/projects'}).webAbsoluteUrl;
       var info = {
         restUrl: url + '/_api',
         listDataSvcUrl: url + '/_vti_bin/listdata.svc'

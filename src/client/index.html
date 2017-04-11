@@ -1,7 +1,29 @@
 <!DOCTYPE html>
+<%@ Page language="C#" %>
+<%@ Register Tagprefix="SharePoint" 
+     Namespace="Microsoft.SharePoint.WebControls" 
+     Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Import Namespace="Microsoft.SharePoint" %>
 <html ng-app="app">
+<head runat="server">
 
-<head>
+  <meta charset="utf-8" />
+	<meta name="WebPartPageExpansion" content="full" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+	<SharePoint:CssRegistration Name="default" runat="server"/>
+
+	<script src="/_layouts/15/MicrosoftAjax.js"></script>
+	<script src="/_layouts/15/init.js"></script>
+	<script src="/_layouts/15/core.js"></script>
+	<script src="/_layouts/15/sp.runtime.js"></script>
+	<script src="/_layouts/15/sp.js"></script>
+	<script src="/_layouts/15/sp.init.js"></script>
+	<script src="/_layouts/15/sp.core.js"></script>
+	<script src="/_layouts/15/1033/strings.js"></script>	
+  
   <style>
     /* This helps the ng-show/ng-hide animations start at the right place. */
     /* Since Angular has this but needs to load, this gives us the class early. */
@@ -12,10 +34,7 @@
 
   </style>
   <title ng-bind="title">Project Portfolio</title>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <base href="/">
+  <!--<base href="/">-->
 
   <!-- build:css styles/lib.css -->
   <!-- bower:css -->
@@ -30,21 +49,40 @@
   <link rel="stylesheet" href="/.tmp/styles.css">
   <!-- endinject -->
   <!-- endbuild -->
-
+  <!--
   <script>
-    var L_Menu_BaseUrl = "https://cardinalsolutionsrtp.sharepoint.com/sites/projects";
+    var L_Menu_BaseUrl = "/projects";
     var _spPageContextInfo = {
-      webServerRelativeUrl: "\u002fsites\u002fprojects",
-      webAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
-      siteAbsoluteUrl: "https:\u002f\u002fcardinalsolutionsrtp.sharepoint.com\u002fsites\u002fprojects",
+      webServerRelativeUrl: "\u002fprojects",
+      webAbsoluteUrl: "\u002fprojects",
+      siteAbsoluteUrl: "\u002fprojects",
       userId: 9,
       userLoginName: "spietrek@cardinalsolutionsrtp.onmicrosoft.com"
     };
-
   </script>
+  -->
 </head>
-
 <body>
+    <form runat="server"><SharePoint:FormDigest ID="FormDigest1" runat="server"></SharePoint:FormDigest></form>
+    <!--
+	  <script type="text/javascript">
+      //ExecuteOrDelayUntilScriptLoaded(getPageContextInfo, "core.js");
+			//function getPageContextInfo() {
+      //  console.log("_spPageContextInfo =", _spPageContextInfo);
+			//	console.log("L_Menu_BaseUrl     =", L_Menu_BaseUrl);
+			//	console.log("L_Menu_LCID        =", L_Menu_LCID);
+			//	//alert('2Init');
+			//	if(typeof _spPageContextInfo!== "undefined" && _spPageContextInfo.webUIVersion === 15){
+			//		var L_Menu_BaseUrl 	= L_Menu_BaseUrl	|| _spPageContextInfo.webServerRelativeUrl !== "/" ? _spPageContextInfo.webServerRelativeUrl : "";
+			//		var L_Menu_LCID 	= L_Menu_LCID 		|| _spPageContextInfo.currentLanguage.toString();
+			//	}
+			//	console.log("webServerRelativeUrl =", _spPageContextInfo.webServerRelativeUrl);
+			//	console.log("webAbsoluteUrl       =", _spPageContextInfo.webAbsoluteUrl);
+			//	console.log("siteAbsoluteUrl      =", _spPageContextInfo.siteAbsoluteUrl);
+			//	
+			//}
+	  </script>
+    -->
   <div>
     <csg-shell-container></csg-shell-container>
     <div id="splash-page" ng-show="showSplash">
