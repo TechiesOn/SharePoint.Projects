@@ -209,8 +209,7 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function () {
     title: 'gulp build',
     subtitle: 'Deployed to the build folder',
     message: 'Running `gulp serve-build`'
-  };
-  
+  }; 
   del(config.temp);
   log(msg);
   notify(msg);
